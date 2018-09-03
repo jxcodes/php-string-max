@@ -1,0 +1,23 @@
+{
+    "name": "jdelta/php-string-max",
+    "type": "library",
+    "description": "Util functions for string formating.",
+    "keywords": ["string", "format", "remplace", "template"],
+    "homepage": "https://jdelta.github.io/php-string-max",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/jDelta/php-string-max/issues",
+        "source": "https://github.com/jDelta/php-string-max"
+    },
+    "authors": [
+        {"name": "Jaime Cruz", "email": "jaime@spacejx.com"}
+    ],
+    "require": {
+        "php": "^5.3.3 || ^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "jDelta\\": "src"
+        }
+    }
+}

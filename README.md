@@ -16,6 +16,6 @@ echo StringMax::format(
         'tip' => 'building'
    ]
 );
-// prints: Hi developer, keep to be building!
+// prints: Hi developer, keep building!
 
 ```

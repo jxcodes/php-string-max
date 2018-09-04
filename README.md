@@ -1,6 +1,6 @@
 # php-string-max
 
-Sigleton class for string formating.
+Singleton class for string formating.
 
 Example:
 

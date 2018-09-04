@@ -7,7 +7,7 @@ Singleton class for string formating and templating.
 composer require jDelta/php-string-max
 ````
 
-Usage:
+# Usage:
 ```php
 require __DIR__ . '/../vendor/autoload.php';
 

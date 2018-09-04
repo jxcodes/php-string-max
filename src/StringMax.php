@@ -4,7 +4,7 @@
  * jDelta PHP String Max
  * 
  * https://jdelta.github.io/php-string-max
- * Version 1.0
+ * Version 1.1
  * 
  * Copyright 2018, Jaime Cruz
  * Released under the MIT license
@@ -15,41 +15,47 @@ namespace jDelta;
 class StringMax {
 
     /**
-     * Format string 
+     * Replace tokens
      * 
      * Example:
      * ```php
      * 
-     * echo StringMax::format(
+     * echo StringMax::replaceTokens(
      *     'Hi {{name}}, remember to be {{tip}}',
      *     ['name' => 'developer', 'tip' => 'nice']
      * );
-     * ```
-     * @param string $tpl
-     * @param array $data
-     * @param string $undefinedVar default value for undefined values
      * 
-     * @return string the formated string
+     * ```
+     * @param string $tpl The template.
+     * @param array $data The values.
+     * @param boolean $replaceUndefinedTokens Set **true** to replace the found tokens with an empty string.
+     * @param string $undefinedTokenString Use this to set an specific string when the previous parameter is **true**
+     * 
+     * @return string the resulting string.
      */
-    public static function format($tpl, $data, $removeWhiteSpaces = true, $undefinedVar = '') {
+    public static function replaceTokens($tpl, $data, $replaceUndefinedTokens = false, $undefinedTokenString = '') {
         $output = $tpl;
+        $matches = [];
         if (preg_match_all("/{{(.*?)}}/", $tpl, $matches)) {
             foreach ($matches[1] as $i => $key) {
-                $value = (string) (isset($data[$key]) ? $data[$key] : $undefinedVar);
-                $output = str_replace($matches[0][$i], $value, $output);
+                if (isset($data[$key])) {
+                    $output = str_replace($matches[0][$i], $data[$key], $output);
+                } elseif ($replaceUndefinedTokens) {
+                    $output = str_replace($matches[0][$i], $undefinedTokenString, $output);
+                }
             }
         }
-        return $removeWhiteSpaces ? trim($output) : $output;
+        return $output;
     }
 
     /**
-     * Format array
+     * Replace tokens in array
      * 
-     * Formats an array of strings including sub arrays.
+     * Replaces tokens in an array of strings including sub arrays.
      * 
      * ```php
      * 
-     * echo StringMax::formatArray([
+     * $result = StringMax::replaceTokensInArray([
      *         'Hi {{name}}, remember to be {{tip}}.',
      *         'Because {{myTarget}} love nice {{myTarget}}',
      *         'and' => [
@@ -63,20 +69,22 @@ class StringMax {
      *         'mates'     => 'friends'
      *     ]
      * );
+     * 
      * ```
-     * @param array $array
-     * @param array $values
-     * @return array the formated array
+     * @param array $tpl The array of templates
+     * @param array $values The values
+     * 
+     * @return The resulting array.
      */
-    public static function formatArray(&$array, $values) {
-        foreach ($array as $key => $value) {
+    public static function replaceTokensInArray($tpl, $values, $replaceUndefinedTokens = false, $undefinedTokenString = '') {
+        foreach ($tpl as $key => $value) {
             if (is_string($value)) {
-                $array[$key] = self::format($value, $values);
+                $tpl[$key] = self::replaceTokens($value, $values, $replaceUndefinedTokens, $undefinedTokenString);
             } elseif (is_array($value)) {
-                $array[$key] = self::formatArray($value, $values);
+                $tpl[$key] = self::replaceTokensInArray($value, $values, $replaceUndefinedTokens, $undefinedTokenString);
             }
         }
-        return $array;
+        return $tpl;
     }
 
 }

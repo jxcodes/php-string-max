@@ -4,14 +4,14 @@ Singleton class for string formating and templating.
 
 # Install
 ```ruby
-composer require jDelta/php-string-max
+composer require Jdelta/php-string-max
 ````
 
 # Usage:
 ```php
 require __DIR__ . '/../vendor/autoload.php';
 
-use jDelta\StringMax;
+use Jdelta\StringMax;
 ````
 Example 1:
 ```php

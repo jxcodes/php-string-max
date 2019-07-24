@@ -1,7 +1,7 @@
 <?php
 
 /**
- * jDelta PHP String Max
+ * Jdelta PHP String Max
  * 
  * https://jdelta.github.io/php-string-max
  * Version 1.1
@@ -10,7 +10,7 @@
  * Released under the MIT license
  */
 
-namespace jDelta;
+namespace Jdelta;
 
 class StringMax {
 

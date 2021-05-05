@@ -2,15 +2,15 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use jDelta\StringMax;
+use Jxcodes\StringMax;
 
 // Example 1
 echo StringMax::replaceTokens(
-    'Hi {{name}}, keep {{tip}}!',
-    [
-        'name' => 'developer',
-        'tip'  => 'building'
-   ]
+  'Hi {{name}}, keep {{tip}}!',
+  [
+      'name' => 'developer',
+      'tip'  => 'building'
+  ]
 );
 // Exaple 2
 $tpl = <<<HTML
@@ -23,19 +23,20 @@ echo StringMax::replaceTokens($tpl, [
     'saying' => 'Keep simple things simple!'
 ]);
 
-$result = StringMax::replaceTokensInArray([
-        'Hi {{name}}, remember to be {{tip}}.',
-        'Because {{myTarget}} love nice {{myTarget}}',
-        'and' => [
-            'the world is better if we have more {{mates}}.'
-        ]
-    ],
-    [
-        'name'      => 'developer',
-        'tip'       => 'nice',
-        'myTarget'  => 'people',
-        'mates'     => 'friends'
+$result = StringMax::replaceTokensInArray(
+  [
+    'Hi {{name}}, remember to be {{tip}}.',
+    'Because {{myTarget}} love nice {{myTarget}}',
+    'and' => [
+        'the world is better if we have more {{mates}}.'
     ]
+  ],
+  [
+      'name'     => 'developer',
+      'tip'      => 'nice',
+      'myTarget' => 'people',
+      'mates'    => 'friends'
+  ]
 );
 echo '<pre>';
 print_r($result);

@@ -1,13 +1,13 @@
 {
-    "name": "jdelta/php-string-max",
+    "name": "jxcodes/php-string-max",
     "type": "library",
     "description": "Util functions for string formating.",
     "keywords": ["string", "format", "remplace", "template"],
-    "homepage": "https://jdelta.github.io/php-string-max",
+    "homepage": "https://jxcodes.github.io/php-string-max",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/jDelta/php-string-max/issues",
-        "source": "https://github.com/jDelta/php-string-max"
+        "issues": "https://github.com/jxcodes/php-string-max/issues",
+        "source": "https://github.com/jxcodes/php-string-max"
     },
     "authors": [
         {"name": "Jaime Cruz", "email": "jaime@spacejx.com"}
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Jdelta\\": "src"
+            "Jxcodes\\": "src"
         }
     }
 }

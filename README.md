@@ -4,7 +4,7 @@ Singleton class for string formating and templating.
 
 # Install
 ```ruby
-composer require Jxcodes/php-string-max
+composer require jxcodes/php-string-max
 ````
 
 # Usage:

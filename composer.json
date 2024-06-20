@@ -1,8 +1,13 @@
 {
-    "name": "jxcodes/php-string-max",
+    "name": "jlibs/php-string-max",
     "type": "library",
     "description": "Util functions for string formating.",
-    "keywords": ["string", "format", "remplace", "template"],
+    "keywords": [
+        "string",
+        "format",
+        "remplace",
+        "template"
+    ],
     "homepage": "https://jxcodes.github.io/php-string-max",
     "license": "MIT",
     "support": {
@@ -10,14 +15,17 @@
         "source": "https://github.com/jxcodes/php-string-max"
     },
     "authors": [
-        {"name": "Jaime Cruz", "email": "jaime@spacejx.com"}
+        {
+            "name": "Jaime Cruz",
+            "email": "jaimecruz.inbox@gmail.com"
+        }
     ],
     "require": {
-        "php": "^5.3.3 || ^7.0"
+        "php": ">=5.5"
     },
     "autoload": {
         "psr-4": {
-            "Jxcodes\\": "src"
+            "JLibs\\": "src"
         }
     }
 }
